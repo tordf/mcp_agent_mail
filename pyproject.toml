@@ -71,8 +71,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://example.com/mcp-agent-mail"
-Repository = "https://example.com/mcp-agent-mail"
+Homepage = "https://github.com/Dicklesworthstone/mcp_agent_mail"
+Repository = "https://github.com/Dicklesworthstone/mcp_agent_mail"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/mcp_agent_mail"]

@@ -53,8 +53,16 @@ Result: you invest 1–2 hours of human supervision, but dozens of agent-hours e
 
 ### One-line installer
 
+#### macOS / Linux (Bash)
+
 ```bash
 curl -fsSL "https://raw.githubusercontent.com/Dicklesworthstone/mcp_agent_mail/main/scripts/install.sh?$(date +%s)" | bash -s -- --yes
+```
+
+#### Windows (PowerShell)
+
+```powershell
+irm "https://raw.githubusercontent.com/Dicklesworthstone/mcp_agent_mail/main/scripts/install.ps1" | iex
 ```
 
 What this does:
