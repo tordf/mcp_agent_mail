@@ -125,7 +125,8 @@ HAS_GEMINI=0; [[ -d "${HOME}/.gemini" ]] && HAS_GEMINI=1
 
 HAS_OPENCODE=0; command -v opencode >/dev/null 2>&1 && HAS_OPENCODE=1; [[ -d "${HOME}/.opencode" ]] && HAS_OPENCODE=1
 HAS_FACTORY=0; [[ -d "${HOME}/.factory" ]] && HAS_FACTORY=1
-_print "Found: claude=${HAS_CLAUDE} codex=${HAS_CODEX} cursor=${HAS_CURSOR} gemini=${HAS_GEMINI} opencode=${HAS_OPENCODE} factory=${HAS_FACTORY}"
+HAS_GSD=0; [[ -d "${ROOT_DIR}/.gsd" ]] && HAS_GSD=1; command -v gsd >/dev/null 2>&1 && HAS_GSD=1
+_print "Found: claude=${HAS_CLAUDE} codex=${HAS_CODEX} cursor=${HAS_CURSOR} gemini=${HAS_GEMINI} opencode=${HAS_OPENCODE} factory=${HAS_FACTORY} gsd=${HAS_GSD}"
 
 if [[ $HAS_CLAUDE -eq 1 ]]; then
   echo "-- Integrating Claude Code..."
@@ -166,6 +167,11 @@ if [[ $HAS_FACTORY -eq 1 ]]; then
   bash "${ROOT_DIR}/scripts/integrate_factory_droid.sh" --yes "$@" || echo "(warn) Factory Droid integration reported a non-fatal issue"
 else
   echo "-- Skipping Factory Droid: not detected (~/.factory not found)."
+fi
+
+if [[ $HAS_GSD -eq 1 ]]; then
+  echo "-- Integrating GSD-2..."
+  bash "${ROOT_DIR}/scripts/integrate_gsd.sh" --yes "$@" || echo "(warn) GSD integration reported a non-fatal issue"
 fi
 
 # GitHub Copilot integration (best effort - typically in VS Code)

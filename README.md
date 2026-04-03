@@ -26,7 +26,7 @@ This project provides a lightweight, interoperable layer so agents can:
 - Declare advisory file reservations (leases) on files/globs to signal intent
 - Inspect a directory of active agents, programs/models, and activity
 
-It's designed for: FastMCP clients and CLI tools (Claude Code, Codex, Gemini CLI, Factory Droid, etc.) coordinating across one or more codebases.
+It's designed for: FastMCP clients and CLI tools (Claude Code, Codex, Gemini CLI, GSD-2, Factory Droid, etc.) coordinating across one or more codebases.
 
 ## From Idea Spark to Shipping Swarm
 
@@ -35,7 +35,7 @@ If a blank repo feels daunting, follow the field-tested workflow we documented i
 - **Ideate fast:** Write a scrappy email-style blurb about the problem, desired UX, and any must-have stack picks (≈15 minutes).
 - **Promote it to a plan:** Feed that blurb to GPT-5 Pro (and optionally Grok4 Heavy / Opus 4.1) until you get a granular Markdown plan, then iterate on the plan file while it’s still cheap to change. The Markdown Web Browser sample plan shows the level of detail to aim for.
 - **Codify the rules:** Clone a tuned `AGENTS.md`, add any tech-specific best-practice guides, and let Codex scaffold the repo plus Beads tasks straight from the plan.
-- **Spin up the swarm:** Launch multiple Codex panes (or any agent mix), register each identity with Agent Mail, and have them acknowledge `AGENTS.md`, the plan document, and the Beads backlog before touching code.
+- **Spin up the swarm:** Launch multiple Codex panes (or any agent mix: Claude Code, GSD-2, etc.), register each identity with Agent Mail, and have them acknowledge `AGENTS.md`, the plan document, and the Beads backlog before touching code.
 - **Keep everyone fed:** Reuse the canned instruction cadence from the tweet thread or, better yet, let the commercial Companion app’s Message Stacks broadcast those prompts automatically so you never hand-feed panes again.
 
 Watch the full 23-minute walkthrough (https://youtu.be/68VVcqMEDrs?si=pCm6AiJAndtZ6u7q) to see the loop in action.

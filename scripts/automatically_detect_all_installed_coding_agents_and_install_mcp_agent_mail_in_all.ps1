@@ -28,8 +28,9 @@ $hasClaude = Test-Path (Join-Path $HOME ".claude")
 $hasCodex = Test-Path (Join-Path $HOME ".codex")
 $hasCursor = Test-Path (Join-Path $HOME ".cursor")
 $hasGemini = Test-Path (Join-Path $HOME ".gemini")
+$hasGsd = (Test-Path (Join-Path $rootDir ".gsd")) -or (Get-Command gsd -ErrorAction SilentlyContinue)
 
-Write-LogInfo "Found: claude=$hasClaude, codex=$hasCodex, cursor=$hasCursor, gemini=$hasGemini"
+Write-LogInfo "Found: claude=$hasClaude, codex=$hasCodex, cursor=$hasCursor, gemini=$hasGemini, gsd=$hasGsd"
 
 # Start temporary server for bootstrap
 $pyScript = @'
@@ -66,6 +67,11 @@ if ($hasCodex) {
 if ($hasGemini) {
     Write-Host "-- Integrating Gemini CLI..."
     & (Join-Path $PSScriptRoot "integrate_gemini_cli.ps1") -Yes:$Yes -ProjectDir $targetDir
+}
+
+if ($hasGsd) {
+    Write-Host "-- Integrating GSD-2..."
+    & (Join-Path $PSScriptRoot "integrate_gsd.ps1") -Yes:$Yes -ProjectDir $targetDir
 }
 
 # Best-effort integrations
